@@ -1006,12 +1006,12 @@ class Op_GYAZ_Export_Export (Operator):
             final_rig_data = ori_ao.data.copy ()
             
             # create new armature object
-            final_rig = bpy.data.objects.new (name="root", object_data=final_rig_data)
+            final_rig = bpy.data.objects.new (name="Base", object_data=final_rig_data)
             scene.collection.objects.link (final_rig)
             make_active_only (final_rig)
 
-            final_rig.name = "root"
-            final_rig.name = "root"
+            final_rig.name = "Base"
+            final_rig.name = "Base"
             final_rig.rotation_mode = "QUATERNION"
             
             # remove drivers
