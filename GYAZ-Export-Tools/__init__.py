@@ -28,7 +28,20 @@ bl_info = {
  "tracker_url": "",   
  "category": "Import-Export"}
 
+#https://blender.stackexchange.com/questions/296136/how-to-reload-an-addon-to-see-changes
+# (In your __init__.py)
+# When bpy is already in local, we know this is not the initial import...
+if "bpy" in locals():
+    # ...so we need to reload our submodule(s) using importlib
+    import importlib
+    if "my_submodule" in locals():
+        importlib.reload(my_submodule)
 
+
+# This is only relevant on first run, on later reloads those modules
+# are already in locals() and those statements do not do anything.
+import bpy
+import my_submodule
 
 import bpy
 from bpy.types import AddonPreferences, PropertyGroup
